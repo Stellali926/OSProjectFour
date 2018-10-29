@@ -46,15 +46,15 @@ public class PagingSimulator
 
         for (int i = 0; i < SIM_RUNS; ++i)
         {
-            System.out.println("+------------------------------+");
-            System.out.format("| Starting Simulation Run %d    |\n", i);
-            System.out.println("+------------------------------+");
+            System.out.println("+==============================+");
+            System.out.format("     Starting Simulation Run %d    \n", i);
+            System.out.println("+==============================+");
 
             for (Simulator sim : sims)
             {
-                System.out.println("--------------------------------");
+                System.out.println("*************************************************");
                 System.out.format("Using %s Algorithm\n", sim.pageStr);
-                System.out.print("--------------------------------");
+                System.out.print("*************************************************");
 
                 sim.page.simulate();
 
