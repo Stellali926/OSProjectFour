@@ -1,13 +1,6 @@
 import java.util.List;
 import java.util.Random;
 
-/**
- * @author Michael Riha
- *
- * A Process with several pages of memory which randomly selects the next page
- * to reference. Takes into account locality of reference to place a certain
- * probability on the next page being within 1 delta
- */
 public class Process
 {
     public static final double LOC_REF_PROBABILITY = .70;
@@ -15,12 +8,6 @@ public class Process
     public Page[] pages;
     public int currentPage;
 
-    /**
-     Create pages for this process from 0 through PROCESS_PAGES. Then put
-     * all of the pages onto disk (for simplicity -- we don't care about
-     * the disk paging order, just the memory)
-     @param pager a Paging Algorithm that has memory and disk to load pages into
-     */
     public Process(Pager pager)
     {
         List<Page> disk = pager.getDiskTable();
@@ -35,9 +22,8 @@ public class Process
     }
 
     /**
-     * Get the next page to reference randomly. Use locality of reference to place
-     * a 70% probability on the next page being within 1 page of the current page
-     * Advances currentPage to the page number that is returned by this method
+     * Get the next page randomly. Use locality to place a 70% probability on the next page being within 1
+     * page of the current page.
      * @return index of the next page to reference
      */
     public int getNextPageNumber()

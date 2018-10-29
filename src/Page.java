@@ -1,9 +1,3 @@
-/**
- * @author Michael Riha
- *
- * Represents a Page entry in a Page table.
- * Keeps track of whether it is being referenced and which page number it contains
- */
 public class Page
 {
     public boolean inMemory;

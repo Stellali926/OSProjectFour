@@ -1,11 +1,5 @@
-/**
- * @author Michael Riha
- * A Pager which evicts pages in the order they were put in memory, but if a 
- * process is referenced a second time its time is reset
- */
-public class SecondChancePager extends Pager
+public class MostFrequentlyUsedPager extends Pager
 {
-    /**@return the index of the page put into memory first */
     @Override
     public int getEvictionIndex()
     {

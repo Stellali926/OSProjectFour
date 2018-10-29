@@ -2,17 +2,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-/**
- * @author Michael Riha
- * An abstract class to represent Paging Algorithms such as FIFO, Second chance,
- * Random Pick, and LRU. Performs simulations and has access to the RAM and 
- * disk page tables.
- *
- * Prints the memory reference #, memory contents at the time, and any pages
- * that are evicted or promoted to facilitate a memory reference.
- *
- * Keeps track of hit ratio and number of page references for printing later
- */
+
 public abstract class Pager
 {
     public static final int MEMORY_FRAMES = 4;
@@ -31,7 +21,6 @@ public abstract class Pager
         this.memoryOrdered = new LinkedList<>();
     }
 
-    /** Reset everything like the Pager was newly constructed */
     public void reset()
     {
         this.disk = new ArrayList<>(DISK_FRAMES);
@@ -41,7 +30,6 @@ public abstract class Pager
         this.hits = 0;
     }
 
-    /** Simulate the paging algorithm with the given parameters*/
     public void simulate()
     {
         Process proc = new Process(this);
@@ -54,14 +42,11 @@ public abstract class Pager
                 System.out.format("%d ", p.number);
 
             pageNum = proc.getNextPageNumber();
-            System.out.format(" | Referencing Page %d.", pageNum);
+            System.out.format(" | Refer Page %d.", pageNum);
 
             // If the page is already in memory, we just need to update its status
             if (proc.pages[pageNum].inMemory)
-            {   // If pageNum is at the front of the queue give it a Second Chance (only for SecondChancePager)
-                if (this instanceof SecondChancePager && memoryOrdered.peek().number == pageNum)
-                    memoryOrdered.add(memoryOrdered.poll());
-
+            {
                 proc.pages[pageNum].lastReferenced = pageRefs;
                 ++hits;
             }
@@ -113,7 +98,7 @@ public abstract class Pager
             memoryOrdered.add(fromDisk);
             memory.set(evictIdx, fromDisk);
         }
-        System.out.format(" Promoting Page %d.", fromDisk.number);
+        System.out.format(" Adding Page %d.", fromDisk.number);
     }
 
     public int getPageRefs() { return pageRefs; }
@@ -123,8 +108,8 @@ public abstract class Pager
     public Queue<Page> getMemoryOrdered() { return memoryOrdered; }
 
     /**
-     * Get the index of the value to evict from memory to allocate a page from disk
-     * @return index of the page to evict
+     * The abstract function that inheritent all five algorithm FIFO, LFU, LRU, MFU, randome pick
+     * @return the eviction index
      */
     public abstract int getEvictionIndex();
 }

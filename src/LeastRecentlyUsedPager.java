@@ -1,10 +1,5 @@
-/**
- * @author Michael Riha
- * A Pager which evicts the LeastRecentlyUsed process from the page table
- */
 public class LeastRecentlyUsedPager extends Pager
 {
-    /**@return index of the least recently used process in the page table */
     @Override
     public int getEvictionIndex()
     {
