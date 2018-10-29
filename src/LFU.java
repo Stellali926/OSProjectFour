@@ -1,4 +1,4 @@
-public class LeastFrequentlyUsedPager extends Pager {
+public class LFU extends Pager {
     @Override
     public int getEvictionIndex() {
         int processNumber = getMemoryOrdered().peek().number;

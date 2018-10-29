@@ -1,4 +1,4 @@
-public class FirstInFirstOutPager extends Pager
+public class FIFO extends Pager
 {
     @Override
     public int getEvictionIndex()

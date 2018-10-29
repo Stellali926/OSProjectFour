@@ -1,4 +1,4 @@
-public class LeastRecentlyUsedPager extends Pager
+public class LRU extends Pager
 {
     @Override
     public int getEvictionIndex()

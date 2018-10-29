@@ -37,10 +37,10 @@ public class PagingSimulator
     {
         Simulator[] sims = new Simulator[]
                 {
-                        new Simulator(new FirstInFirstOutPager(), "First In First Out"),
-                        new Simulator(new MostFrequentlyUsedPager(), "Most Frequently Used"),
-                        new Simulator(new LeastRecentlyUsedPager(), "Least Recently Used"),
-                        new Simulator(new LeastFrequentlyUsedPager(), "Least Frequently Used"),
+                        new Simulator(new FIFO(), "First In First Out"),
+                        new Simulator(new MFU(), "Most Frequently Used"),
+                        new Simulator(new LRU(), "Least Recently Used"),
+                        new Simulator(new LFU(), "Least Frequently Used"),
                         new Simulator(new RandomPickPager(), "Random Pick")
                 };
 

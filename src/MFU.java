@@ -1,4 +1,4 @@
-public class MostFrequentlyUsedPager extends Pager
+public class MFU extends Pager
 {
     @Override
     public int getEvictionIndex()
