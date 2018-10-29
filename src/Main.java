@@ -15,7 +15,7 @@
  * For each reference we print the page numbers of the pages in memory, 
  * which page needed to be paged, and which page was evicted 
  */
-public class PagingSimulator
+public class Main
 {
     public static final int SIM_RUNS = 5;
 
